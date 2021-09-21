@@ -3,9 +3,15 @@ import { useState } from 'react';
 
 function App() {
 	const [numberOfErrors, setNumberOfErrors] = useState(0);
+	const [lastLetter, setLastLetter] = useState('');
+
 	const handleIncrease = () => {
 		setNumberOfErrors(numberOfErrors + 1);
 		console.log(numberOfErrors);
+	};
+
+	const HandleLastLetter = (event) => {
+		setLastLetter(event.target.value);
 	};
 
 	return (
@@ -46,12 +52,14 @@ function App() {
 								Escribe una letra:
 							</label>
 							<input
+								onChange={HandleLastLetter}
 								autoComplete="off"
 								className="form__input"
 								maxLength="1"
 								type="text"
 								name="last-letter"
 								id="last-letter"
+								value={lastLetter}
 							/>
 						</form>
 						<button onClick={handleIncrease}>Incrementar</button>

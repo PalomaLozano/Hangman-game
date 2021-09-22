@@ -4,6 +4,7 @@ import { useState } from 'react';
 function App() {
 	const [numberOfErrors, setNumberOfErrors] = useState(0);
 	const [lastLetter, setLastLetter] = useState('');
+	const [userLetters, setUserLetters] = useState([]);
 
 	const handleIncrease = () => {
 		setNumberOfErrors(numberOfErrors + 1);
@@ -12,6 +13,7 @@ function App() {
 
 	const HandleLastLetter = (event) => {
 		setLastLetter(event.target.value);
+		setUserLetters;
 	};
 
 	return (

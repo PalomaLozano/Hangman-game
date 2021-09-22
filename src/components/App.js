@@ -13,7 +13,8 @@ function App() {
 
 	const HandleLastLetter = (event) => {
 		setLastLetter(event.target.value);
-		setUserLetters;
+		const userLettersClone = [...userLetters, event.target.value];
+		setUserLetters(userLettersClone);
 	};
 
 	return (

@@ -5,6 +5,16 @@ function App() {
 	const [numberOfErrors, setNumberOfErrors] = useState(0);
 	const [lastLetter, setLastLetter] = useState('');
 	const [userLetters, setUserLetters] = useState([]);
+	const [word, setWord] = useState('kata');
+
+	const renderSolutionLetters = () => {
+		const wordLetters = word.split('');
+		console.log(wordLetters);
+
+		return wordLetters.map((letter, index) => {
+			return <li className="letter" key={index}></li>;
+		});
+	};
 
 	const handleIncrease = () => {
 		setNumberOfErrors(numberOfErrors + 1);
@@ -27,18 +37,7 @@ function App() {
 					<section>
 						<div className="solution">
 							<h2 className="title">Solución:</h2>
-							<ul className="letters">
-								<li className="letter">k</li>
-								<li className="letter">a</li>
-								<li className="letter"></li>
-								<li className="letter">a</li>
-								<li className="letter">k</li>
-								<li className="letter">r</li>
-								<li className="letter"></li>
-								<li className="letter">k</li>
-								<li className="letter">e</li>
-								<li className="letter">r</li>
-							</ul>
+							<ul className="letters">{renderSolutionLetters()}</ul>
 						</div>
 						<div className="feedback">
 							<h2 className="title">Letras falladas:</h2>
